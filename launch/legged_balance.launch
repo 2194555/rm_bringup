@@ -1,7 +1,7 @@
 <launch>
     <arg name="robot_type" default="$(env ROBOT_TYPE)" doc="Robot type [standard, hero, engineer]"/>
     <arg name="load_controller" default="true"/>
-    <arg name="balance" default="true"/>
+    <arg name="wheeled_balance" default="true"/>
     <arg name="hw_name" default="$(env HW_NAME)" doc="Hw name [rm_can_hw, rm_ecat_hw]"/>
 
     <rosparam file="$(find rm_dbus)/config/dbus.yaml" command="load"/>
@@ -11,7 +11,7 @@
     <!--    <node name="rm_dbus" pkg="rm_dbus" type="rm_dbus" respawn="false"/>-->
 
     <include file="$(find rm_config)/launch/manual.launch">
-        <arg name="balance" value="$(arg balance)"/>
+        <arg name="wheeled_balance" value="$(arg wheeled_balance)"/>
     </include>
 
     <include file="$(find rm_config)/launch/referee.launch"/>
